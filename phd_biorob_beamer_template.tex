@@ -1,0 +1,56 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Requires the installation of Microsoft fonts (Arial).
+% Install on Linux with "sudo apt-get install ttf-mscorefonts-installer"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass{beamer}
+
+% packages 
+\input{00-imports}
+
+% definitions
+\input{00-defs}
+
+% you have to set all this personal information
+\setCurriculumName{My Curriculum}
+\setResearchProjName{Title of you research project\\(tentative)}
+\setTutors{John Doe, Jane Doe, Sam Smith}
+\setStudent{Name Surname}
+\setCycle{$\mathrm{n}^{\mathrm{th}}$}
+\setYear{20xx-xx}
+\setContacts{my.email@me.it,my\_other.email@otherme.com}
+
+\author{\getStudentName}
+%\title{Bioengineering and Robotics PhD annual report template - \getStudentName}
+
+\checksetup
+
+\begin{document}
+
+\begin{frame}{Title of Slide with Video}
+	Here is an example of embedding a video in Beamer.
+	
+	\begin{center}
+		\includemedia[
+		width=0.3\linewidth, % Adjust the size of the video
+		height=0.3\linewidth, % Adjust the size of the video
+		activate=onclick, % onclick, pageopen Activate the video when the slide opens
+		deactivate=onclick, % pageclose
+		addresource=sample.mp4, % Change this to the filename of your video
+		flashvars={source=sample.mp4} % Same as above
+		]{AAA}{VPlayer.swf}
+		
+	\end{center}
+\end{frame}
+\begin{frame}
+	\includemedia[
+	width=0.3\linewidth, % Adjust the size of the video
+	height=0.3\linewidth, % Adjust the size of the video
+	activate=onclick, % onclick, pageopen Activate the video when the slide opens
+	deactivate=onclick, % pageclose
+	addresource=sample.mp4, % Change this to the filename of your video
+	flashvars={source=sample.mp4} % Same as above
+	]{AAA}{VPlayer.swf}
+\end{frame}
+
+\end{document}

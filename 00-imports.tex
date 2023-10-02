@@ -1,0 +1,44 @@
+\usepackage{media9}
+
+\usepackage{url}
+
+% bibliograhy stuff
+%\usepackage{cite}
+\usepackage[backend=bibtex, style=ieee, maxbibnames=99]{biblatex}
+\addbibresource{refs/refs.bib}
+% with the dontbib category the entries added with \fullcite will not be considered by the \printbibliography
+\DeclareBibliographyCategory{dontbib} 
+\addtocategory{dontbib}{TPO, TPO2, TPO3}
+\preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
+
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{setspace}
+\setstretch{1.0} 
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+% Arial font
+%\usepackage{fontspec}
+
+% for Gantt charts
+\usepackage{pgfgantt}
+
+\usepackage{cleveref}
+
+\usepackage{array}
+
+\usepackage{multirow}
+\usepackage{pifont}
+\usepackage{wasysym}
+\usepackage{pstricks}
+\usepackage{wasysym}
+
+\usepackage{etoolbox} % for \forcsvlist
+\usepackage{calc}
+
+\usepackage{graphicx} 
+
+\usepackage{pgffor} % For foreach loop
+\usepackage{xparse}
