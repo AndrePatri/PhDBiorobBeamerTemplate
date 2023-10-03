@@ -3,54 +3,48 @@
 % Install on Linux with "sudo apt-get install ttf-mscorefonts-installer"
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass{beamer}
+\documentclass[aspectratio=169,10pt]{beamer}
 
 % packages 
 \input{00-imports}
+
+% settings
+\input{00-settings}
 
 % definitions
 \input{00-defs}
 
 % you have to set all this personal information
 \setCurriculumName{My Curriculum}
-\setResearchProjName{Title of you research project\\(tentative)}
-\setTutors{John Doe, Jane Doe, Sam Smith}
-\setStudent{Name Surname}
+\setResearchProjName{Motion Planning and Control for Hybrid Locomotion of Wheeled-Legged Systems}
+\setTutors{Nikos Tsagarakis, Arturo Laurenzi}
+\setStudent{Andrea Patrizi}
 \setCycle{$\mathrm{n}^{\mathrm{th}}$}
-\setYear{20xx-xx}
-\setContacts{my.email@me.it,my\_other.email@otherme.com}
-
+\setYear{$1^{\mathrm{st}}$}
+\setContacts{andrea.patrizi@iit.it,andreapatrizi1b6e6@gmail.com}
+\setLocation{Istituto Italiano di Tecnologia}
+\setFootlineLogo{logos/small_logos.pdf}
+% Information for the title pag
 \author{\getStudentName}
-%\title{Bioengineering and Robotics PhD annual report template - \getStudentName}
+\date{October 10, 2023}
 
 \checksetup
 
 \begin{document}
 
-\begin{frame}{Title of Slide with Video}
+\titleslide{logos/big_logos.pdf}
+
+\begin{frame}{\textbf{Beautiful slide with video}}
 	Here is an example of embedding a video in Beamer.
-	
 	\begin{center}
-		\includemedia[
-		width=0.3\linewidth, % Adjust the size of the video
-		height=0.3\linewidth, % Adjust the size of the video
-		activate=onclick, % onclick, pageopen Activate the video when the slide opens
-		deactivate=onclick, % pageclose
-		addresource=sample.mp4, % Change this to the filename of your video
-		flashvars={source=sample.mp4} % Same as above
-		]{AAA}{VPlayer.swf}
-		
+	\includevideo{0.2\linewidth}{0.39\linewidth}{sample}
 	\end{center}
 \end{frame}
-\begin{frame}
-	\includemedia[
-	width=0.3\linewidth, % Adjust the size of the video
-	height=0.3\linewidth, % Adjust the size of the video
-	activate=onclick, % onclick, pageopen Activate the video when the slide opens
-	deactivate=onclick, % pageclose
-	addresource=sample.mp4, % Change this to the filename of your video
-	flashvars={source=sample.mp4} % Same as above
-	]{AAA}{VPlayer.swf}
+
+\begin{frame}{\textbf{Normal slide}}
+	
 \end{frame}
+
+\closingslide{logos/big_logos.pdf}
 
 \end{document}

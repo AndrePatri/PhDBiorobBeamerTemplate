@@ -1,3 +1,60 @@
+% Command to extract the first frame
+% Assumes extract.bash is in the same directory and -shell-escape is enabled
+\newcommand{\extractframe}{
+    \immediate\write18{./extract.bash}
+}
+
+% Custom command to create title page
+% #1: image filename
+\newcommand{\titleslide}[1]{
+
+     \begin{frame}
+     \centering
+            \includegraphics[width=0.8\pagewidth]{#1} % Include logo/image
+           	\\[0.5cm]
+            \large{\getYear~year~PhD~annual~evaluation}\\[0.3cm]
+            \Large{\getProjName}\\[0.5cm]
+            \large{Student:~\getStudentName}\\[0.3cm] % Display author
+            \small{Tutors:~\getTutorsList}\\[0.8cm] % Display author
+            \small{\getLocationName, \insertdate} % Display date
+            \vfill
+     \end{frame}
+}
+
+\newcommand{\closingslide}[1]{
+
+     \begin{frame}
+     \centering
+            \includegraphics[width=0.8\pagewidth]{#1} % Include logo/image
+           	\\[0.5cm]
+           	\vfill
+           	\Large{Thanks for your attention!}\\[0.3cm]
+           	\Large{Any questions?}\\[0.8cm]
+            \normalsize{Contacts: \getContactsList}
+            \vfill
+     \end{frame}
+}
+
+% Wrapper command around \includemedia
+% #1: width
+% #2: height
+% #3: video filename (without extension)
+% #4: video file extension (optional, defaults to mp4)
+\newcommand{\includevideo}[4][mp4]{
+    \includemedia[
+        width=#2,
+        height=#3,
+        activate=onclick,
+        deactivate=pageclose,
+        addresource=videos/#4.#1,
+        flashvars={
+            &source=videos/#4.#1
+            &autoPlay=true
+            &loop=true
+        }
+    ]{\includegraphics[width=#2, height=#3]{videos/extracted_frames/#4_first_frame.jpg}}{VPlayer9.swf}
+}
+
 \setlist[itemize]{itemsep=4pt,parsep=2pt,topsep=2pt,leftmargin=0.5cm,labelsep=4pt}
 
 % colors
@@ -35,6 +92,16 @@
 	\tl_gset:Nn \g_curriculum_tl {#1}
 }
 
+\NewDocumentCommand{\setFootlineLogo}{m}
+{
+	\tl_gset:Nn \g_footline_logo_tl {#1}
+}
+
+\NewDocumentCommand{\setLocation}{m}
+{
+	\tl_gset:Nn \g_location_tl {#1}
+}
+
 \NewDocumentCommand{\setResearchProjName}{m}
 {
 	\tl_gset:Nn \g_proj_tl {#1}
@@ -66,6 +133,10 @@
 }
 
 \NewDocumentCommand{\getCurriculumName}{}{\tl_use:N \g_curriculum_tl}
+
+\NewDocumentCommand{\getFootlineLogo}{}{\tl_use:N \g_footline_logo_tl}
+
+\NewDocumentCommand{\getLocationName}{}{\tl_use:N \g_location_tl}
 
 \NewDocumentCommand{\getProjName}{}{\tl_use:N \g_proj_tl}
 
