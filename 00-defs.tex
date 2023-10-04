@@ -1,8 +1,8 @@
 % Command to extract the first frame
 % Assumes extract.bash is in the same directory and -shell-escape is enabled
-\newcommand{\extractframe}{
-    \immediate\write18{./extract.bash}
-}
+%\newcommand{\extractframe}{
+%    \immediate\write18{./extract.bash}
+%}
 
 % Custom command to create title page
 % #1: image filename
@@ -10,7 +10,7 @@
 
      \begin{frame}
      \centering
-            \includegraphics[width=0.8\pagewidth]{#1} % Include logo/image
+            \includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
            	\\[0.5cm]
             \large{\getYear~year~PhD~annual~evaluation}\\[0.3cm]
             \Large{\getProjName}\\[0.5cm]
@@ -25,7 +25,7 @@
 
      \begin{frame}
      \centering
-            \includegraphics[width=0.8\pagewidth]{#1} % Include logo/image
+            \includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
            	\\[0.5cm]
            	\vfill
            	\Large{Thanks for your attention!}\\[0.3cm]
@@ -66,6 +66,7 @@
 \definecolor{green}{RGB}{0, 128, 0}
 \definecolor{red}{RGB}{255, 0, 0}
 \definecolor{lightblue}{RGB}{173, 216, 230}
+\definecolor{darklightblue}{RGB}{121, 182, 201}
 \definecolor{mydarkblue}{RGB}{0, 0, 139}
 \definecolor{mydarkgreen}{RGB}{0, 100, 0}
 \definecolor{mylightgreen}{RGB}{56, 93, 75}
