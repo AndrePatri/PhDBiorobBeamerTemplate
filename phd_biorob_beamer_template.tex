@@ -14,6 +14,9 @@
 % definitions
 \input{00-defs}
 
+% bibliography
+\input{bibsources.tex}
+
 % you have to set all this personal information
 \setCurriculumName{My Curriculum}
 \setResearchProjName{Motion Planning and Control for Hybrid Locomotion of Wheeled-Legged Systems}
@@ -32,19 +35,34 @@
 \checksetup
 
 \begin{document}
-
+	
 \titleslide{logos/big_logos.pdf}
 
-\begin{frame}{\textbf{Beautiful slide with video}}
-	Here is an example of embedding a video in Beamer.
+\input{01-objective}
+
+\input{02-soa}
+
+\input{03-methodology}
+
+\input{04-results}
+
+\input{05-training}
+
+\input{06-pub}
+
+\input{07-activities}
+
+\begin{frame}{Slide with video embedding}
+	Ready for an example of embedding a video in Beamer?
+	\pause
 	\begin{center}
 	\includevideo{0.25\linewidth}{0.4\linewidth}{sample}
 	\end{center}
 \end{frame}
 
-\begin{frame}{\textbf{Normal slide}}
-	
-\end{frame}
+%\bibliographystyle{unsrt}
+%\bibliography{refs/refs.bib}
+%\printbibliography[notcategory=dontbib]
 
 \closingslide{logos/big_logos.pdf}
 

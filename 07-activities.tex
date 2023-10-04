@@ -1,10 +1,18 @@
-\section{Other activities}
-%For example:
-%\begin{itemize}
-%	\item[a.] Presentations
-%	\item[b.] Attended conferences, workshops, etc 
-%	\item[c.] Teaching
-%	\item[d.] .......
-%\end{itemize}
+\begin{frame}{Activities}
+	\setbeamercovered{transparent}
+	\begin{forest}
+		[\onslide<1->{\textbf{Model Predictive Control} (MPC)}
+		[\onslide<2->{open-loop}
+		[ \onslide<3->{$\rhd$ no state feedback;\\ loop closed on \\ first sample of \\
+			solution \textit{roll-out}} 
+		]
+		]
+		[\onslide<4->{\textbf{closed-loop}}
+		[ \onslide<5->{$\rhd$ loop closed \\ on state estimates}
+		]
+		]
+		]
+	\end{forest}
+	\setbeamercovered{invisible}
+\end{frame}
 
-\clearpage
