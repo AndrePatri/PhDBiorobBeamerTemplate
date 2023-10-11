@@ -1,35 +1,58 @@
 \setbeamercolor{myfootline}{bg=white}
 \setbeamercolor{background canvas}{bg=white} 
 \setbeamercolor{normal text}{fg=black}
-\setbeamercolor{frametitle}{fg=black, bg=darklightblue} % bg=white sets the background color of the title
+\setbeamercolor{frametitle}{fg=black, bg=titlebackgroundblue2} % darklightblue bg=white sets the background color of the title
+\setbeamertemplate{caption}{\insertcaptionnumber: \insertcaption}
+\captionsetup{font=tiny}
 
-% Define custom title
 \setbeamertemplate{frametitle}{
-	\vskip-1pt % Adjust this space
-	\begin{beamercolorbox}[wd=\paperwidth,sep=0.3cm,leftskip=0cm,rightskip=0cm]{frametitle}
-		\usebeamerfont{frametitle}\textbf{\insertframetitle}%
-	\end{beamercolorbox}%
-%	\color{lightblue}\rule{\paperwidth}{1pt}% Line at the bottom
+	\vskip3pt
+	\begin{beamercolorbox}[sep=0.0cm,wd=1.0\textwidth,ht=1.0em,dp=0.0ex,rounded=true,shadow=true]{frametitle}
+		\\[0.1cm]\hspace{0.3cm}\textbf{\insertframetitle}\\[0.1cm]
+%		\\
+%		\color{lightgray}\rule{0.87\paperwidth}{0.5pt}
+	\end{beamercolorbox}
 }
 
-% Define custom footline
-\setbeamertemplate{footline}{
-    \leavevmode%
-    \color{lightgray}\rule{\paperwidth}{2pt}
-    \hbox{%
-    \begin{beamercolorbox}[wd=.45\paperwidth,ht=8ex,dp=1ex,left]{myfootline}%
-    	 \hspace{0.5cm}
-    	 \vspace{0.03cm}
-         \includegraphics[height=0.5cm,keepaspectratio]{\getFootlineLogo} % adjust size accordingly
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.1\paperwidth,ht=8ex,dp=1ex,center]{myfootline}%
-    	\vspace{0.2cm}
-        \usebeamerfont{title in head/foot}\insertframenumber
-    \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=.45\paperwidth,ht=8ex,dp=1ex,right]{myfootline}%
-    \vspace{0.2cm}
-%    \usebeamerfont{author in head/foot}
-	 \getLocationName,~\insertdate,~\getStudentName \hspace{0.5cm}
-    \end{beamercolorbox}}%
-    \vskip0pt%
+% Define custom title
+%\setbeamertemplate{frametitle}{
+%	\vskip-1pt % Adjust this space
+%	\begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex,left,sep=0.3cm,leftskip=0cm,rightskip=0cm]{frametitle}
+%		\usebeamerfont{frametitle}\textbf{\insertframetitle}%
+%	\end{beamercolorbox}%
+%%	\color{lightblue}\rule{\paperwidth}{1pt}% Line at the bottom
+%}
+
+\defbeamertemplate{footline}{customfootline}{
+%	\vskip-20pt
+	\leavevmode%
+	\color{lightgray}\rule{\paperwidth}{0.5pt}
+	\hbox{%
+		\begin{beamercolorbox}[wd=.45\paperwidth,ht=8ex,dp=1ex,left]{myfootline}%
+			\hspace{0.5cm}
+			\vspace{0.03cm}
+			\includegraphics[height=0.5cm,keepaspectratio]{\getFootlineLogo} % adjust size accordingly
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.1\paperwidth,ht=8ex,dp=1ex,center]{myfootline}%
+			\vspace{0.2cm}
+			\usebeamerfont{title in head/foot}\insertframenumber
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.45\paperwidth,ht=8ex,dp=1ex,right]{myfootline}%
+			\vspace{0.2cm}
+			%    \usebeamerfont{author in head/foot}
+			\getLocationName,~\insertdate,~\getStudentName \hspace{0.5cm}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+
+\defbeamertemplate{footline}{nofootline}{
+	\vskip0pt
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=1.0\paperwidth,ht=8ex,dp=1ex,center]{myfootline}%
+			\vspace{0.2cm}
+			\usebeamerfont{title in head/foot}\insertframenumber
+		\end{beamercolorbox}%
+	}
+	\vskip0pt%
 }

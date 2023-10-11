@@ -4,35 +4,96 @@
 %    \immediate\write18{./extract.bash}
 %}
 
-% Custom command to create title page
-% #1: image filename
-\newcommand{\titleslide}[1]{
+% Define a command to show or hide slides with an argument
+\newcommand{\showHiddenSlides}[1]{%
+	\ifnum#1=1
+	\newcommand{\hiddenSlide}[1]{##1} % Show content
+	\else
+	\ifnum#1=0
+	\newcommand{\hiddenSlide}[1]{}  % Hide content
+	\else
+	\errmessage{Invalid argument for \noexpand\showHiddenSlides: #1}
+	\fi
+	\fi
+}
 
-     \begin{frame}
-     \centering
-            \includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
-           	\\[0.5cm]
-            \large{\getYear~year~PhD~annual~evaluation}\\[0.3cm]
-            \Large{\getProjName}\\[0.5cm]
-            \large{Student:~\getStudentName}\\[0.3cm] % Display author
-            \small{Tutors:~\getTutorsList}\\[0.8cm] % Display author
-            \small{\getLocationName, \insertdate} % Display date
-            \vfill
-     \end{frame}
+% Define a new environment named tight_itemize
+\newenvironment{tight_itemize}{
+	\begin{itemize}[topsep=1pt, partopsep=1pt, parsep=1pt, itemsep=1pt]
+	}{
+	\end{itemize}
+}
+
+% Define a new command named \custombox
+% #1: alignment
+% #2: width of the box
+% #3: color
+% #4: text to be displayed inside the box
+\newcommand{\custombox}[4]{
+	\begin{tcolorbox}[width=#2, colback=#3, colframe=black, left=2pt, right=2pt, top=2pt, bottom=2pt,halign=#1, valign=center]
+		#4
+	\end{tcolorbox}
+}
+
+\forestset{
+	customtree/.style={
+		for tree={ % apply settings to all nodes in the tree
+%			draw, % draw a border around the node
+%			fill=blue!20, % fill the node with a light blue color
+			rounded corners, % round the corners of the nodes
+			edge={very thick, -latex}, % use thick arrows for edges
+			l sep+=0.1cm, % increase level distance
+		}
+	}
+}
+
+% Custom command to create title page
+\NewDocumentCommand{\titleslide}{m o o}{
+	\setbeamertemplate{footline}[nofootline]
+	\begin{frame}
+		\centering
+		\includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
+		\\[0.5cm]
+		\large{\getYear~year~PhD~annual~evaluation}\\[0.3cm]
+		\Large{\getProjName}\\[0.5cm]
+		
+		\begin{columns}[c, onlytextwidth]
+			\column{0.2\textwidth}
+			\centering
+			\IfValueTF{#2}{ 
+				\includegraphics[height=1.0\textwidth]{#2}
+			}{}
+		
+			\column{0.6\textwidth}
+			\centering
+			\large{Student:~\getStudentName}\\[0.3cm] % Display author
+			\small{Tutors:~\getTutorsList}\\[0.8cm] % Display author
+			\small{\getLocationName, \insertdate} % Display date
+			\vfill
+			
+			\column{0.2\textwidth}
+			\centering
+			\IfValueTF{#3}{ 
+				\includegraphics[height=1.0\textwidth]{#3}
+			}{}
+		\end{columns}
+	\end{frame}
+	\setbeamertemplate{footline}[customfootline]
 }
 
 \newcommand{\closingslide}[1]{
-
-     \begin{frame}
-     \centering
-            \includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
-           	\\[0.5cm]
-           	\vfill
-           	\Large{Thanks for your attention!}\\[0.3cm]
-           	\Large{Any questions?}\\[0.8cm]
-            \normalsize{Contacts: \getContactsList}
-            \vfill
-     \end{frame}
+	\setbeamertemplate{footline}[nofootline]
+	\begin{frame}
+		\centering
+		\includegraphics[width=0.85\paperwidth]{#1} % Include logo/image
+			         	\\[0.5cm]
+			         	\vfill
+			         	\Large{Thanks for your attention!}\\[0.3cm]
+			         	\Large{Questions?}\\[0.8cm]
+		\normalsize{Contacts: \getContactsList}
+		\vfill
+	\end{frame}
+	\setbeamertemplate{footline}[customfootline]
 }
 
 % Wrapper command around \includemedia
@@ -44,16 +105,34 @@
     \includemedia[
         width=#2,
         height=#3,
-        activate=onclick,
+        activate=pageopen,
         deactivate=pageclose,
         addresource=videos/#4.#1,
         flashvars={
             &source=videos/#4.#1
             &autoPlay=true
             &loop=true
+            &scale=tofit
         }
     ]{\includegraphics[width=#2, height=#3]{videos/extracted_frames/#4_first_frame.jpg}}{VPlayer9.swf}
 }
+
+%\NewDocumentCommand{\includevideo}{m m m O{mp4}}{
+%    \centering
+%    \includemedia[
+%        width=#2,
+%        height=#3,
+%        activate=pageopen,
+%        deactivate=pageclose,
+%        addresource=videos/#1.#4,
+%        flashvars={
+%            &source=videos/#1.#4
+%            &autoPlay=true
+%            &loop=true
+%            &scale=tofit
+%        }
+%    ]{\includegraphics[width=#2, height=#3]{videos/extracted_frames/#1_first_frame.jpg}}{VPlayer9.swf}
+%}
 
 \setlist[itemize]{itemsep=4pt,parsep=2pt,topsep=2pt,leftmargin=0.5cm,labelsep=4pt}
 
@@ -71,6 +150,16 @@
 \definecolor{mydarkblue}{RGB}{0, 0, 139}
 \definecolor{mydarkgreen}{RGB}{0, 100, 0}
 \definecolor{mylightgreen}{RGB}{56, 93, 75}
+\definecolor{boxbackgroundgreen}{RGB}{191, 216, 193}
+\definecolor{boxbackgroundblue}{RGB}{174, 220, 243}
+\definecolor{boxbackgroundgrey}{RGB}{201, 212, 218}
+\definecolor{titlebackgroundblue}{RGB}{105, 171, 222}
+\definecolor{titlebackgroundblue2}{RGB}{142, 186, 220}
+\definecolor{boxbackgroundyellow}{RGB}{225, 213, 154}
+\definecolor{boxbackgroundlightlightblue}{RGB}{167, 242, 239}
+\definecolor{boxbackgroundlightlighttorquoise}{RGB}{196, 189, 242}
+\definecolor{boxbackgroundlightlightred}{RGB}{249, 183, 200}
+
 \setganttlinklabel{s-s}{START-TO-START}
 \setganttlinklabel{f-s}{FINISH-TO-START}
 \setganttlinklabel{f-f}{FINISH-TO-FINISH}

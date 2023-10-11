@@ -17,52 +17,51 @@
 % bibliography
 \input{bibsources.tex}
 
+% hidden slides (1 shows them, 0 hides them)
+\showHiddenSlides{0}
+
 % you have to set all this personal information
 \setCurriculumName{My Curriculum}
-\setResearchProjName{Motion Planning and Control for Hybrid Locomotion of Wheeled-Legged Systems}
-\setTutors{Arturo Laurenzi, Nikos Tsagarakis}
-\setStudent{Andrea Patrizi}
+\setResearchProjName{Very catchy PhD project title (possibly tentative)}
+\setTutors{Pinco Pallino, Janet Doe}
+\setStudent{John Doe}
 \setCycle{$\mathrm{n}^{\mathrm{th}}$}
-\setYear{$1^{\mathrm{st}}$}
-\setContacts{andrea.patrizi@iit.it,andreapatrizi1b6e6@gmail.com}
-\setLocation{Istituto Italiano di Tecnologia}
+\setYear{$n^{\mathrm{th}}$}
+\setContacts{john.doe@iit.it,johndoe@gmail.com}
+\setLocation{Beautiful Place}
 \setFootlineLogo{logos/small_logos.pdf}
 % Information for the title pag
 \author{\getStudentName}
 \title{\getProjName}
-\date{October 10, 2023}
+\date{{this\_month} {today}, 20xx}
 
 \checksetup
-
+\setbeamertemplate{footline}[customfootline]
 \begin{document}
-	
-\titleslide{logos/big_logos.pdf}
 
-\input{01-objective}
+\titleslide{logos/big_logos.pdf}[docs/imgs/anymal_wheel.pdf][docs/imgs/centauro.pdf]
 
-\input{02-soa}
+\input{01-tree_with_boxes}
 
-\input{03-methodology}
+\input{02-pub_list}
 
-\input{04-results}
+\input{03-boxes}
 
-\input{05-training}
-
-\input{06-pub}
-
-\input{07-activities}
-
-\begin{frame}{Slide with video embedding}
-	Ready for an example of embedding a video in Beamer?
-	\pause
-	\begin{center}
-	\includevideo{0.25\linewidth}{0.4\linewidth}{sample}
-	\end{center}
-\end{frame}
-
-%\bibliographystyle{unsrt}
-%\bibliography{refs/refs.bib}
-%\printbibliography[notcategory=dontbib]
+\input{04-hidden_slides}
+%
+\input{05-video_embedding}
+%
+%\input{08-c1_conclusions}
+%
+%\input{08-c2_objectives}
+%
+%\input{09-c2_soa}
+%
+%\input{10-c2_methodology}
+%
+%\input{11-c2_results}
+%
+%\input{12-next_steps}
 
 \closingslide{logos/big_logos.pdf}
 

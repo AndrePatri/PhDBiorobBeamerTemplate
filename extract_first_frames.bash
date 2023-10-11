@@ -3,6 +3,8 @@
 # Ensure the script stops on the first error
 set -e
 
+mkdir -p videos
+
 # Navigate to the videos directory (optional, adjust as per your folder structure)
 cd videos
 
