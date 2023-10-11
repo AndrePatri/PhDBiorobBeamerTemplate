@@ -5,6 +5,7 @@ This is a simple and clean LaTeX template for the presentation associated with t
 <center><img src="docs/example/video_embedding.gif" alt="drawing" width="500"/> </center>
 (sorry for the low-quality GIF)
 
+
 You can inspect a precompiled version of it [here](https://github.com/AndrePatri/PhDBiorobBeamerTemplate/blob/main/docs/example/phd_biorob_beamer_template.pdf).
 
 All the definitions are in *00-def.tex*, all the imports in *00-imports.tex* and all settings are in *00-settings.tex*. This is a very simple but clean organization of the template which users are encouraged to employ. 
