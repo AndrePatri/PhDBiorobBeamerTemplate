@@ -3,10 +3,15 @@
 This is a simple and clean LaTeX template for the presentation associated with the annual report of the Bioengineering and Robotics PhD progam from University of Genova (with VIDEO (and audio) EMBEDDING IN LATEX!):
 
 <p align="center">
-  <img src="docs/example/video_embedding.gif" alt="embedded video example" width="400" />
+  <img src="docs/example/video_embedding.gif" alt="embedded video example" width="500" />
 </p>
 
 You can inspect a precompiled version of it [here](https://github.com/AndrePatri/PhDBiorobBeamerTemplate/blob/main/docs/example/phd_biorob_beamer_template.pdf).
+Or, alternatively, 
+
+<p align="center">
+  <img src="docs/example/beamer_overview.gif" alt="beamer overview" width="500" />
+</p>
 
 All the definitions are in *00-def.tex*, all the imports in *00-imports.tex* and all settings are in *00-settings.tex*. This is a very simple but clean organization of the template which users are encouraged to employ. 
 
