@@ -3,8 +3,6 @@
 This is a simple and clean LaTeX template for the presentation associated with the annual report of the Bioengineering and Robotics PhD progam from University of Genova (with VIDEO (and audio) EMBEDDING IN LATEX!):
 
 <center><img src="docs/example/video_embedding.gif" alt="drawing" width="500"/> </center>
-(sorry for the low-quality GIF)
-
 
 You can inspect a precompiled version of it [here](https://github.com/AndrePatri/PhDBiorobBeamerTemplate/blob/main/docs/example/phd_biorob_beamer_template.pdf).
 
