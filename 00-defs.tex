@@ -113,43 +113,35 @@
 	\setbeamertemplate{footline}[customfootline]
 }
 
-% Wrapper command around \includemedia
-% #1: width
-% #2: height
-% #3: video filename (without extension)
-% #4: video file extension (optional, defaults to mp4)
-\newcommand{\includevideo}[4][mp4]{
-    \includemedia[
-        width=#2,
-        height=#3,
-        activate=pageopen,
-        deactivate=pageclose,
-        addresource=videos/#4.#1,
-        flashvars={
-            &source=videos/#4.#1
-            &autoPlay=true
-            &loop=true
-            &scale=tofit
-        }
-    ]{\includegraphics[width=#2, height=#3]{videos/extracted_frames/#4_first_frame.jpg}}{VPlayer9.swf}
+\ExplSyntaxOn
+\NewDocumentCommand{\includevideo}{O{mp4} O{pageopen} O{pageclose} O{1920/1080} m m}{
+	% #1: file type (default: mp4)
+	% #2: activate option (default: pageopen)
+	% #3: deactivate option (default: pageclose)
+	% #4: aspect_ratio (default: 1920/1080)
+	% #5: width
+	% #6: videoname
+	
+	\newdimen\videoheight % This length is local to this group
+	
+	\def\aspectratio{#4} % or any other number
+	\pgfmathsetlength{\videoheight}{#5 * \aspectratio}
+	
+	\includemedia[
+	width=#5,
+	height=\videoheight,
+	activate=#2,
+	deactivate=#3,
+	addresource=videos/#6.#1,
+	flashvars={
+		source=videos/#6.#1
+		&autoPlay=true
+		&loop=true
+		&scale=tofit
+	}
+	]{\includegraphics[width=#5, height=\videoheight]{videos/extracted_frames/#6_first_frame.jpg}}{VPlayer9.swf}
 }
-
-%\NewDocumentCommand{\includevideo}{m m m O{mp4}}{
-%    \centering
-%    \includemedia[
-%        width=#2,
-%        height=#3,
-%        activate=pageopen,
-%        deactivate=pageclose,
-%        addresource=videos/#1.#4,
-%        flashvars={
-%            &source=videos/#1.#4
-%            &autoPlay=true
-%            &loop=true
-%            &scale=tofit
-%        }
-%    ]{\includegraphics[width=#2, height=#3]{videos/extracted_frames/#1_first_frame.jpg}}{VPlayer9.swf}
-%}
+\ExplSyntaxOff
 
 \setlist[itemize]{itemsep=4pt,parsep=2pt,topsep=2pt,leftmargin=0.5cm,labelsep=4pt}
 

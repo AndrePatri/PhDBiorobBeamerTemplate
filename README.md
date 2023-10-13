@@ -17,7 +17,7 @@ All the definitions are in *00-def.tex*, all the imports in *00-imports.tex* and
 
 Feel free to add new functions, improve the existing ones or customize the style to suit your needs.
 
-This template supports embedding video in the presentation with the utility command `\includevideo{width}{height}{video_name}`. The way this works is that there is, by convention, a video folder located at `./videos` and videos MUST be placed in the root of this folder. Before adding any new video to the presentation, you have to run the `extract_first_frames.bash` script located at the root of the template. This will automatically extract the placeholders to be used for the videos.
+This template supports embedding video in the presentation with the utility command `\includevideo[mp4][pageopen][pageclose][${aspect_ratio}]{${width}}{${video_name}}`. The way this works is that there is, by convention, a video folder located at `./videos` and videos MUST be placed in the root of this folder. Before adding any new video to the presentation, you have to run the `extract_first_frames.bash` script located at the root of the template. This will automatically extract the placeholders to be used for the videos.
 
 Main package dependencies: 
 - Pdf visualization with slideshow and video support: *Okular*. Install on Linux with `sudo apt install okular`. Okular is tested and works with this template and also provides quite a complete set of tools, including drawing on the slides and customizing transitions between them. Other readers might work as well.

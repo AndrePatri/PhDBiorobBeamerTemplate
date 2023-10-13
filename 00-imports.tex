@@ -20,6 +20,11 @@
 \usepackage{url}
 \usepackage{geometry}
 
+\usepackage{pgffor} % For foreach loop
+\usepackage{pgf}
+
+\usepackage{xfp} % For \fpeval
+
 \usepackage{caption}
 
 \usepackage{breqn}
@@ -36,10 +41,6 @@
 % bibliograhy stuff
 %\usepackage{cite}
 \usepackage[backend=bibtex, style=ieee, maxbibnames=99]{biblatex}
-% with the dontbib category the entries added with \fullcite will not be considered by the \printbibliography
-\DeclareBibliographyCategory{dontbib} 
-\addtocategory{dontbib}{TPO, TPO2, TPO3}
-\preto\fullcite{\AtNextCite{\defcounter{maxnames}{99}}}
 
 \usepackage{xcolor}
 \usepackage{tabularx}
@@ -69,6 +70,3 @@
 
 \usepackage{etoolbox} % for \forcsvlist
 \usepackage{calc}
-
-\usepackage{pgffor} % For foreach loop
-\usepackage{xparse}
